@@ -23,7 +23,6 @@ const Select = styled.select`
 
 const useCriptoMoneda = (label, stateInitial, listCripto) => {
 
-  console.log(listCripto)  
   const [cripto, setCripto] = useState(stateInitial);
 
   const SeleccionarCripto = () => (

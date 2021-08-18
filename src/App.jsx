@@ -4,6 +4,7 @@ import axios from 'axios'
 import imagen from "./cryptomonedas.png";
 import Form from "./components/Form";
 import Cotizacion from "./components/Cotizacion";
+import Spinner from "./components/Spinner";
 
 
 const Contenedor = styled.div`
@@ -43,9 +44,8 @@ const App = () => {
 
   const [moneda, setMoneda] = React.useState('')
   const [CriptoMoneda, setCriptoMoneda] = React.useState('')
-  const [resultado, setResultado] = React.useState({
-
-  })
+  const [resultado, setResultado] = React.useState({})
+  const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
 
@@ -74,8 +74,18 @@ const App = () => {
         </Heading>
 
 
-        <Form setMoneda={setMoneda} setCriptoMoneda={setCriptoMoneda}/>
-        <Cotizacion resultado={resultado}/>
+        <Form 
+        setMoneda={setMoneda} 
+        setCriptoMoneda={setCriptoMoneda}
+        setLoading={setLoading}/>
+        {
+          loading && <Spinner />
+        }
+
+        { 
+          !loading ? <Cotizacion resultado={resultado}/> : null
+        }
+        
       </div>
     </Contenedor>
   );

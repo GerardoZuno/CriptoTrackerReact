@@ -25,7 +25,7 @@ transition: background-color .3s ease ;
 
 `
 
-function Form({setMoneda, setCriptoMoneda}) {
+function Form({setMoneda, setCriptoMoneda, setLoading}) {
 
     const [listCripto, setListCripto] = useState([])
     const [error, setError] = useState(false)
@@ -59,7 +59,13 @@ function Form({setMoneda, setCriptoMoneda}) {
             setError(true)
             return
         }
-        console.log(moneda)
+
+        setLoading(true)
+
+        setTimeout(() =>{
+          setLoading(false)
+        }, 3000)
+        
         setError(false)
         setMoneda(moneda)
         setCriptoMoneda(cripto)
