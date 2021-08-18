@@ -21,26 +21,30 @@ const Select = styled.select`
   font-size: 1rem;
 `
 
-const useMoneda = (label, stateInitial, MONEDAS) => {
-  const [state, setState] = useState(stateInitial);
+const useCriptoMoneda = (label, stateInitial, listCripto) => {
 
-  const Seleccionar = () => (
+  console.log(listCripto)  
+  const [cripto, setCripto] = useState(stateInitial);
+
+  const SeleccionarCripto = () => (
     <>
       <Label >{label} </Label>
       <Select 
-      onChange={(e) => setState(e.target.value)}
-      value={state}
+      onChange={(e) => setCripto(e.target.value)}
+      value={cripto}
       >
         <option value="">--select</option>
-        {MONEDAS.map(item =>(
-          <option key={item.codigo} value={item.codigo}>{item.nombre}</option>
-        ))}
+         {listCripto.map(item =>(
+          <option key={item.CoinInfo.Id} name={item.CoinInfo.Name} value={item.CoinInfo.Name}>{item.CoinInfo.FullName}</option>
+        ))}*/
+       
         
       </Select>
     </>
   );
   //Retornar state, interfaz y func. que modifica el state
-  return [state, Seleccionar, setState];
+  return [cripto, SeleccionarCripto, setCripto];
 };
 
-export default useMoneda;
+export default useCriptoMoneda;
+
