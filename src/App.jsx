@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import imagen from "./cryptomonedas.png";
 import Form from "./components/Form";
 
+
 const Contenedor = styled.div`
   max-width: 900px;
   margin: 0 auto;
@@ -37,6 +38,8 @@ const Heading = styled.h1`
 `;
 
 const App = () => {
+
+
   return (
     <Contenedor>
       <div>
@@ -46,6 +49,8 @@ const App = () => {
         <Heading >
           Cotiza Criptomonedas al Instante
         </Heading>
+
+
         <Form />
       </div>
     </Contenedor>
